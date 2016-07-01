@@ -29,6 +29,7 @@
 	
 	</style>
 </head>
+
 <body>
 	  <% Boolean respuesta = 
   (Boolean)request.getAttribute("respuesta"); 

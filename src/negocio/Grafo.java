@@ -72,102 +72,34 @@ public class Grafo {
 			return Ciudades.C6;
 		}
 	}
-
-	public boolean conexion(String origen, String termino) {
-		
+	
+	public boolean existe(String origen, String termino){
 		Ciudades inicio = this.getCiudad(origen);
 		Ciudades fin = this.getCiudad(termino);
-		String ciudadesPartida = grafo.get(inicio.getIndice());
+		
+		return existeConexion(inicio.getIndice(),fin.getIndice());		
+		
+	}
+	
+	public boolean existeConexion(int origen, int termino){
+
+		String ciudadesPartida = grafo.get(origen);
 		boolean existe = false;
 		
-		if(ciudadesPartida.charAt(fin.getIndice())=='1')
+		if(ciudadesPartida.charAt(termino)=='1')
 		{
-			existe = true;
+			return true;
 		}
 		
-		if(!(existe))
+		for(int n=0;n<ciudadesPartida.length();n++)
 		{
-			for(int i=0;i<ciudadesPartida.length();i++)
+			if(ciudadesPartida.charAt(n)=='1')
 			{
-				if(ciudadesPartida.charAt(i)=='1')
-				{
-					String ciudadesSiguientes = grafo.get(i);
-					if(ciudadesSiguientes.charAt(fin.getIndice())=='1')
-					{					
-						existe = true;
-						break;
-					}	
-
-					for(int j=0;j<ciudadesSiguientes.length();j++)
-					{						
-						if(ciudadesSiguientes.charAt(j)=='1')
-						{
-							String ciudadesSiguientes1 = grafo.get(j);
-							if(ciudadesSiguientes1.charAt(fin.getIndice())=='1')
-							{					
-								existe = true;
-								break;
-							}
-							
-							for(int k=0;k<ciudadesSiguientes1.length();k++)
-							{
-								if(ciudadesSiguientes1.charAt(k)=='1')
-								{
-									String ciudadesSiguientes2 = grafo.get(k);
-									if(ciudadesSiguientes2.charAt(fin.getIndice())=='1')
-									{					
-										existe = true;
-										break;
-									}
-									
-									for(int l=0;l<ciudadesSiguientes2.length();l++)
-									{
-										if(ciudadesSiguientes2.charAt(l)=='1')
-										{
-											String ciudadesSiguientes3 = grafo.get(l);
-											if(ciudadesSiguientes3.charAt(fin.getIndice())=='1')
-											{					
-												existe = true;
-												break;
-											}
-											
-											for(int m=0;m<ciudadesSiguientes3.length();m++)
-											{
-												if(ciudadesSiguientes3.charAt(m)=='1')
-												{
-													String ciudadesSiguientes4 = grafo.get(m);
-													if(ciudadesSiguientes4.charAt(fin.getIndice())=='1')
-													{					
-														existe = true;
-														break;
-													}			
-													
-													for(int n=0;n<ciudadesSiguientes4.length();n++)
-													{
-														if(ciudadesSiguientes4.charAt(n)=='1')
-														{
-															String ciudadesSiguientes5 = grafo.get(n);
-															if(ciudadesSiguientes5.charAt(fin.getIndice())=='1')
-															{					
-																existe = true;
-																break;
-															}	
-														}								
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+				existe = existeConexion(n,termino);
+			}								
 		}
 		
-		return existe;		
-		
+		return existe;
 	}
 
 }

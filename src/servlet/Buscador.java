@@ -39,7 +39,7 @@ public class Buscador extends HttpServlet {
 		String ciudaddos = request.getParameter("sel2");
 		Grafo g = new Grafo();
 		
-		request.setAttribute("respuesta", g.conexion(ciudaduno, ciudaddos));
+		request.setAttribute("respuesta", g.existe(ciudaduno, ciudaddos));
 		request.setAttribute("ciudado", ciudaduno);
 		request.setAttribute("ciudadd", ciudaddos);
 		request.getRequestDispatcher("respuesta.jsp").forward(request,response);

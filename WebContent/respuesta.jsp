@@ -40,48 +40,19 @@
 	<img src="img/mapa.gif"  alt="Mapa de ciudades" border="0" >
 	</div>
 	</div>
-	<div class="col-md-4 block text-center"></div>
-	<div class="col-md-4 block text-center">
-    <form action="Buscador" role="form" method="Post">
-    <div class="form-group">
-      <label for="sel1" style="font-size: 20px; color:rgb(71, 160, 189);">Seleccione Ciudad de Origen:</label>
-      <select class="form-control" id="sel1" name="sel1">
-        <option>Ciudad 1</option>
-        <option>Ciudad 2</option>
-        <option>Ciudad 3</option>
-        <option>Ciudad 4</option>
-        <option>Ciudad 5</option>
-        <option>Ciudad 6</option>
-      </select>
-     </div>
-      <div class="form-group">
-      <label for="sel1" style="font-size: 20px; color:rgb(71, 160, 189);">Seleccione Ciudad de Destino:</label>
-      <select class="form-control" id="sel2" name="sel2" >
-        <option>Ciudad 1</option>
-        <option>Ciudad 2</option>
-        <option>Ciudad 3</option>
-        <option>Ciudad 4</option>
-        <option>Ciudad 5</option>
-        <option>Ciudad 6</option>
-      </select>
-      <br>
-      <button class="btn btn-success" type="submit" value="ENVIAR">Comprobar Ruta</button>
-     </div>
-     </form>  
-     </div>
-     <div class="col-md-4 block text-center"></div>
       </div>
       <div class="row">
 		<div class="col-md-2 block text-center"></div>
 		<div class="col-md-8 block text-center"> <% if(respuesta==true){ %>
-		<p id="especial" class="texto"><strong>HAY</strong> RUTA DESDE LA CIUDAD <em><%= ciudado%></em> A LA CIUDAD <em><%= ciudadd%></em></p>
+		<p id="especial" class="texto"><strong>HAY</strong> RUTA DESDE LA <em><%= ciudado.toUpperCase()%></em> A LA <em><%= ciudadd.toUpperCase()%></em></p>
 			<% ;} else{ %>
 			<p id="especial2" class="texto"><strong>NO HAY</strong> RUTA DESDE LA  <em><%= ciudado.toUpperCase()%></em>  A LA <em><%= ciudadd.toUpperCase()%></em> </p>
 			<% ;}%>
 			</div>
-			<div class="col-md-2 block text-center"></div>
-  		 </div> 
-	
+			<div class="col-md-2 block text-center"></div>	   
+	  </div> 
+	  <br>
+	<p align="center"><a href="index.jsp">Volver a preguntar por una ruta</a></p>	
 	
 
 </body>
