@@ -37,7 +37,8 @@ public class Buscador extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ciudaduno = request.getParameter("sel1");
 		String ciudaddos = request.getParameter("sel2");
-		Grafo g = new Grafo();
+		String[] rutas = {"010100","001000","000000","000011","000001","000000"};
+		Grafo g = new Grafo(rutas);
 		
 		request.setAttribute("respuesta", g.existe(ciudaduno, ciudaddos));
 		request.setAttribute("ciudado", ciudaduno);

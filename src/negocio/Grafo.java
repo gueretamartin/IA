@@ -45,6 +45,15 @@ public class Grafo {
 		grafo.add("000000");
 	}
 	
+	public Grafo(String[] rutas)
+	{
+		grafo = new ArrayList<String>();
+		for(int i=0;i<rutas.length;i++)
+		{
+			grafo.add(rutas[i]);
+		}
+	}
+	
 	public Ciudades getCiudad(String nombre)
 	{
 		if(Ciudades.C1.getNombre().compareToIgnoreCase(nombre)==0)
@@ -96,7 +105,11 @@ public class Grafo {
 			if(ciudadesPartida.charAt(n)=='1')
 			{
 				existe = existeConexion(n,termino);
-			}								
+			}
+			if(existe)
+			{
+				return true;
+			}
 		}
 		
 		return existe;
