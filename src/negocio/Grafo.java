@@ -16,34 +16,16 @@ public class Grafo {
 	}
 	
 	public int dameIndiceCiudad(String ciudad)
-	{
-		if(ciudad.compareToIgnoreCase("Ciudad 1")==0)
+	{		
+		switch (ciudad)
 		{
-			return 0;
-		}
-		else if(ciudad.compareToIgnoreCase("Ciudad 2")==0)
-		{
-			return 1;
-		}
-		else if(ciudad.compareToIgnoreCase("Ciudad 3")==0)
-		{
-			return 2;
-		}
-		else if(ciudad.compareToIgnoreCase("Ciudad 4")==0)
-		{
-			return 3;
-		}
-		else if(ciudad.compareToIgnoreCase("Ciudad 5")==0)
-		{
-			return 4;
-		}
-		else if(ciudad.compareToIgnoreCase("Ciudad 6")==0)
-		{
-			return 5;
-		}
-		else
-		{
-			return 99;
+			case "Ciudad 1": return 0;
+			case "Ciudad 2": return 1;
+			case "Ciudad 3": return 2;
+			case "Ciudad 4": return 3;
+			case "Ciudad 5": return 4;
+			case "Ciudad 6": return 5;
+			default: return 99;
 		}
 	}
 	
