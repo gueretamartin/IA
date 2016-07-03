@@ -6,45 +6,6 @@ public class Grafo {
 	
 	ArrayList<String> grafo;
 	
-	public enum Ciudades
-	{
-		C1 ("Ciudad 1",0),
-		C2 ("Ciudad 2",1),
-		C3 ("Ciudad 3",2),
-		C4 ("Ciudad 4",3),
-		C5 ("Ciudad 5",4),
-		C6 ("Ciudad 6",5);
-		
-		private final String nombre; 
-	    private final int indice; 
-	    
-	    Ciudades (String nombre, int ind) { 
-	        this.nombre = nombre;
-	        this.indice = ind;
-	    }
-	    
-	    public String getNombre() 
-	    { 
-	    	return this.nombre; 
-	    }
-	    
-	    public int getIndice() 
-	    { 
-	    	return this.indice; 
-	    }	    
-	}	
-	
-	public Grafo()
-	{
-		grafo = new ArrayList<String>();
-		grafo.add("010100");
-		grafo.add("001000");
-		grafo.add("000000");
-		grafo.add("000011");
-		grafo.add("000001");
-		grafo.add("000000");
-	}
-	
 	public Grafo(String[] rutas)
 	{
 		grafo = new ArrayList<String>();
@@ -54,40 +15,41 @@ public class Grafo {
 		}
 	}
 	
-	public Ciudades getCiudad(String nombre)
+	public int dameIndiceCiudad(String ciudad)
 	{
-		if(Ciudades.C1.getNombre().compareToIgnoreCase(nombre)==0)
+		if(ciudad.compareToIgnoreCase("Ciudad 1")==0)
 		{
-			return Ciudades.C1;
+			return 0;
 		}
-		else if(Ciudades.C2.getNombre().compareToIgnoreCase(nombre)==0)
+		else if(ciudad.compareToIgnoreCase("Ciudad 2")==0)
 		{
-			return Ciudades.C2;
+			return 1;
 		}
-		else if(Ciudades.C3.getNombre().compareToIgnoreCase(nombre)==0)
+		else if(ciudad.compareToIgnoreCase("Ciudad 3")==0)
 		{
-			return Ciudades.C3;
+			return 2;
 		}
-		else if(Ciudades.C4.getNombre().compareToIgnoreCase(nombre)==0)
+		else if(ciudad.compareToIgnoreCase("Ciudad 4")==0)
 		{
-			return Ciudades.C4;
+			return 3;
 		}
-		else if(Ciudades.C5.getNombre().compareToIgnoreCase(nombre)==0)
+		else if(ciudad.compareToIgnoreCase("Ciudad 5")==0)
 		{
-			return Ciudades.C5;
+			return 4;
+		}
+		else if(ciudad.compareToIgnoreCase("Ciudad 6")==0)
+		{
+			return 5;
 		}
 		else
 		{
-			return Ciudades.C6;
+			return 99;
 		}
 	}
 	
 	public boolean existe(String origen, String termino){
-		Ciudades inicio = this.getCiudad(origen);
-		Ciudades fin = this.getCiudad(termino);
 		
-		return existeConexion(inicio.getIndice(),fin.getIndice());		
-		
+		return existeConexion(this.dameIndiceCiudad(origen),this.dameIndiceCiudad(termino));
 	}
 	
 	public boolean existeConexion(int origen, int termino){
